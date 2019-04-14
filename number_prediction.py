@@ -4,10 +4,12 @@ import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 
+#read csv file
 mnist_train=pd.read_csv('mnist_train.csv', header=None)
 mnist_test=pd.read_csv('mnist_test.csv', header=None)
 
 cols=['label']
+
 
 for i in range(784):
     cols.append('px_'+str(i+1))
@@ -15,8 +17,10 @@ for i in range(784):
 mnist_test.columns=cols
 mnist_train.columns=cols
 
+#image = 28*28 pixels
 image_size=28
 
+#take values from "label'
 train_label=mnist_train['label'].values
 test_label=mnist_test['label'].values
 
